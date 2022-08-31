@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>com.jmk</groupId>
+		<artifactId>bjjd-microservices</artifactId>
+		<version>0.0.1.RELEASE</version>
+	</parent>
+
+	<artifactId>data-upload-service</artifactId>
+	<name>data-upload-service</name>
+	<packaging>jar</packaging>
+	<description>Data Upload Service</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.github.joschi.jackson</groupId>
+			<artifactId>jackson-datatype-threetenbp</artifactId>
+			<version>2.6.4</version>
+		</dependency>
+		<!-- Bean Validation API support -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.jmk</groupId>
+			<artifactId>common-service</artifactId>
+			<version>${jmk-version}</version>
+		</dependency>
+		<!-- Starter for using Spring Data JPA with Hibernate to store and retrieve 
+			data in a relational database. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- Excel File Processing API -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>4.1.2</version>
+			</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.4</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>${jib-maven-plugin.version}</version>
+				<configuration>
+					 <to>
+						<image>registry.hub.docker.com/rajivbansal2981/data-upload-service:${jmk-version}</image>
+						<auth>
+							<username>rajivbansal2981</username>
+							<password>rajiv379</password>
+						</auth>
+					</to>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
